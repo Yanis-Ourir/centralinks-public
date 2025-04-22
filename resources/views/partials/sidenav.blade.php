@@ -11,7 +11,7 @@
             <h2 class="text-xl font-bold mb-4 text-white pb-2 border-b border-gray-700">Categories</h2>
             
             <div class="space-y-2 overflow-y-auto max-h-[calc(100vh-220px)] pr-1 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
-                @if($categories->count())
+                @if($categories)
                     @foreach($categories as $category)
                         <a href="{{ route('categories.show', ['id' => $category->id]) }}"
                            class="block bg-[#161616] px-4 py-3 rounded-lg hover:bg-yellow-400 hover:text-black transition font-medium text-gray-200 hover:font-semibold">

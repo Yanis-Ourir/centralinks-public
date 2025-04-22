@@ -1,11 +1,9 @@
 <?php
-namespace App\Service;
+namespace App\Services;
 
 use App\Models\Category;
 use App\Models\Link;
-use App\Service\FormatApiFactory;
-use App\Service\FormatApiDataInterface;
-
+use App\Services\FormatApi\FormatApiFactory;
 
 class PostAggregator
 {
@@ -22,7 +20,7 @@ class PostAggregator
     {
         $posts = [];
 
-        $links = $this->link::findAll();
+        $links = $this->link::all();
 
         foreach ($links as $link) {
             /**

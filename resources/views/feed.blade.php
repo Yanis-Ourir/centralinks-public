@@ -31,7 +31,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center text-yellow-500">
-                                    <x-icon-link />
+                                    {{-- <x-icon-link /> --}}
                                 </div>
                             </div>
 
@@ -57,11 +57,11 @@
                             <div class="flex items-center justify-between mt-4 text-gray-400 text-sm border-t border-gray-800 pt-4">
                                 <div class="flex items-center gap-4">
                                     <span class="flex items-center gap-1">
-                                        <x-icon-star />
+                                        {{-- <x-icon-star /> --}}
                                         {{ $post->score }}
                                     </span>
                                     <span class="flex items-center gap-1">
-                                        <x-icon-comment />
+                                        {{-- <x-icon-comment /> --}}
                                         {{ $post->num_comments }}
                                     </span>
                                 </div>
@@ -79,7 +79,7 @@
                             <div class="flex items-start justify-between mb-4">
                                 <div class="flex gap-3">
                                     <div class="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center text-white">
-                                        <x-icon-twitter />
+                                        {{-- <x-icon-twitter /> --}}
                                     </div>
                                     <div>
                                         <h2 class="text-md font-semibold text-white-100">@user
@@ -91,7 +91,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center text-yellow-500">
-                                    <x-icon-link />
+                                    {{-- <x-icon-link /> --}}
                                 </div>
                             </div>
 
@@ -103,9 +103,9 @@
 
                             <div class="flex items-center justify-between mt-4 text-gray-400 text-sm border-t border-gray-800 pt-4">
                                 <div class="flex items-center gap-5">
-                                    <span class="flex items-center gap-1 hover:text-yellow-500"><x-icon-heart /></span>
-                                    <span class="flex items-center gap-1 hover:text-yellow-500"><x-icon-comment /></span>
-                                    <span class="flex items-center gap-1 hover:text-yellow-500"><x-icon-share /></span>
+                                    {{-- <span class="flex items-center gap-1 hover:text-yellow-500"><x-icon-heart /></span> --}}
+                                    {{-- <span class="flex items-center gap-1 hover:text-yellow-500"><x-icon-comment /></span> --}}
+                                    {{-- <span class="flex items-center gap-1 hover:text-yellow-500"><x-icon-share /></span> --}}
                                 </div>
                                 <span class="text-yellow-500 flex items-center gap-1 hover:underline">
                                     View on Twitter
@@ -117,7 +117,7 @@
             @empty
                 <div class="bg-[#1e1e1e] border border-gray-700 rounded-xl p-8 shadow-md shadow-black/20 text-center">
                     <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-800/30 flex items-center justify-center">
-                        <x-icon-x />
+                        {{-- <x-icon-x /> --}}
                     </div>
                     <h2 class="text-xl font-semibold mb-2">Your feed is empty</h2>
                     <p class="text-gray-400">Select a category from the left sidebar to view posts</p>
