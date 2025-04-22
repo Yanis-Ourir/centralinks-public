@@ -13,7 +13,7 @@
             <div class="space-y-2 overflow-y-auto max-h-[calc(100vh-220px)] pr-1 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
                 @if($categories)
                     @foreach($categories as $category)
-                        <a href="{{ route('categories.show', ['id' => $category->id]) }}"
+                        <a href="{{ route('categories.show', ['category' => $category->name]) }}"
                            class="block bg-[#161616] px-4 py-3 rounded-lg hover:bg-yellow-400 hover:text-black transition font-medium text-gray-200 hover:font-semibold">
                             {{ $category->name }}
                         </a>
@@ -26,7 +26,7 @@
         
         <!-- Add Category CTA -->
         <div class="sticky bottom-4 w-full mt-4">
-            <a href=""
+            <a href="{{ route('categories.create') }}"
                 class="flex items-center justify-center gap-2 w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-4 rounded-lg transition shadow-lg hover:shadow-xl">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />

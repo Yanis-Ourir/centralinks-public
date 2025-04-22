@@ -41,8 +41,11 @@ class PostAggregator
     {
         $posts = [];
 
-        $links = $category->getLinks();
-    
+        $links = $category->links()->get();
+
+        if($links->isEmpty()) {
+            return $posts;
+        }
 
         foreach ($links as $link) {
             /**

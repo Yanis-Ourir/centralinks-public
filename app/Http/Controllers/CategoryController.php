@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Services\PostAggregator;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -10,6 +11,13 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
+    protected PostAggregator $postAggregator;
+
+    public function __construct(PostAggregator $postAggregator)
+    {
+        $this->postAggregator = $postAggregator;
+    }
+
     public function index()
     {
         $categories = Category::all();
@@ -21,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -37,7 +45,7 @@ class CategoryController extends Controller
 
         $category->name = $request->input('name');
         $category->save();
-        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
+        return redirect()->route('feed')->with('success', 'Category created successfully.');
     }
 
     /**
@@ -45,8 +53,15 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        $posts = $category->posts()->with('user')->latest()->paginate(10);
-        return view('categories.show', compact('category', 'posts'));
+        $posts = $this->postAggregator->fetchCategoryPosts($category);
+        $categories = Category::all();
+  
+
+        return view('categories.show', [
+            'posts' => $posts,
+            'categories' => $categories,
+            'category' => $category,
+        ]);
     }
 
     /**

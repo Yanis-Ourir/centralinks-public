@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('base')
 
 @section('title', 'Category')
 
@@ -10,7 +10,7 @@
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <h1 class="text-3xl font-bold text-white">{{ $category->name }} feed</h1>
 
-            <a href="{{ route('link.create') }}" class="flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-medium px-5 py-2.5 rounded-lg transition-all shadow-lg hover:shadow-yellow-500/20 transform hover:-translate-y-0.5">
+            <a href="{{ route('links.create') }}" class="flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-medium px-5 py-2.5 rounded-lg transition-all shadow-lg hover:shadow-yellow-500/20 transform hover:-translate-y-0.5">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
                 </svg>
@@ -123,7 +123,7 @@
             @if (empty($posts))
                 <div class="bg-[#1e1e1e] border border-gray-700 rounded-2xl p-6 shadow-md shadow-black/20">
                     <h2 class="text-xl font-semibold text-gray-100">No posts available</h2>
-                    <a href="{{ route('link.create') }}" class="text-yellow-500 hover:underline">Add a new link to {{ $category->name }}</a>
+                    <a href="{{ route('links.create') }}" class="text-yellow-500 hover:underline">Add a new link to {{ $category->name }}</a>
                 </div>
             @endif
         </div>

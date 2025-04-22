@@ -25,7 +25,7 @@ class FeedController extends Controller
   
     public function index()
     {
-        $categories = $this->category->all();
+        $categories = $this->category::all();
         $links = $this->link->with('user')->latest()->paginate(10);
         $posts = $this->postAggregator->fetchAllPosts();
         return view('feed', [
@@ -38,10 +38,6 @@ class FeedController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
