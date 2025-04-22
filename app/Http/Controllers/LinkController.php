@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Link;
 use Illuminate\Http\Request;
 
@@ -10,6 +11,13 @@ class LinkController extends Controller
     /**
      * Display a listing of the resource.
      */
+  
+    protected Category $category;
+    public function __construct(Category $category)
+    {
+        $this->category = $category;
+    }
+
     public function index()
     {
         //
@@ -20,7 +28,10 @@ class LinkController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('link.create', [
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -28,7 +39,25 @@ class LinkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'url' => 'required|url',
+            'application_name' => 'required|string|max:255',
+        ]);
+
+        $link = new Link();
+        $url = $request->input('url');
+
+        $request->input('application_name') === 'reddit' ? $link->url = $url . '.json' : $link->url = $url;
+
+        $link->application_name = $request->input('application_name');
+        $link->save();
+
+        $categoryId = $request->input('category_id');
+        $link->categories()->attach($categoryId);
+    
+        $link->save();
+
+        return redirect()->route('categories.show', ['category' => $categoryId])->with('success', 'Link created successfully.');
     }
 
     /**

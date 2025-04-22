@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Services\PostAggregator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -44,6 +45,7 @@ class CategoryController extends Controller
         $category = new Category();
 
         $category->name = $request->input('name');
+        $category->user_id = Auth::id();
         $category->save();
         return redirect()->route('feed')->with('success', 'Category created successfully.');
     }
@@ -55,8 +57,7 @@ class CategoryController extends Controller
     {
         $posts = $this->postAggregator->fetchCategoryPosts($category);
         $categories = Category::all();
-  
-
+        
         return view('categories.show', [
             'posts' => $posts,
             'categories' => $categories,

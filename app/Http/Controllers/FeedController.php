@@ -26,11 +26,10 @@ class FeedController extends Controller
     public function index()
     {
         $categories = $this->category::all();
-        $links = $this->link->with('user')->latest()->paginate(10);
         $posts = $this->postAggregator->fetchAllPosts();
+
         return view('feed', [
             'categories' => $categories,
-            'links' => $links,
             'posts' => $posts,
         ]);
     }

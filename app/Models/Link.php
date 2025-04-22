@@ -17,7 +17,7 @@ class Link extends Model
     /**
      * Get the category that owns the link.
      */
-    public function category(): BelongsToMany
+    public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class);
     }

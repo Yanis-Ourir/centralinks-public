@@ -26,8 +26,8 @@ class PostAggregator
             /**
              * @var FormatApiDataInterface $formatter
              */
-            $formatter = $this->formatApi->create($link->getApplicationName());
-            $fetchedPost = $formatter->ApiCall($link->getUrl());
+            $formatter = $this->formatApi->create($link->application_name);
+            $fetchedPost = $formatter->ApiCall($link->url);
 
             if(is_array($fetchedPost)) {
                 $posts[] = $fetchedPost;
@@ -51,8 +51,8 @@ class PostAggregator
             /**
              * @var FormatApiDataInterface $formatter
              */
-            $formatter = $this->formatApi->create($link->getApplicationName());
-            $fetchedPost = $formatter->ApiCall($link->getUrl());
+            $formatter = $this->formatApi->create($link->application_name);
+            $fetchedPost = $formatter->ApiCall($link->url);
 
             if(is_array($fetchedPost)) {
                 $posts[] = $fetchedPost;

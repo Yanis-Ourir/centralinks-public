@@ -20,7 +20,7 @@
     </p>
 
     <div class="mt-8">
-        <a href="{{ route('feed.index') }}" class="px-6 py-3 text-black bg-yellow-400 hover:bg-yellow-500 rounded-xl font-semibold transition">
+        <a href="{{ route('feed') }}" class="px-6 py-3 text-black bg-yellow-400 hover:bg-yellow-500 rounded-xl font-semibold transition">
             Get Started
         </a>
     </div>

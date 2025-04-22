@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('title', 'HomePage - Centralinks')
+@section('title', 'Register - Centralinks')
 
 @section('body')
 <x-guest-layout>

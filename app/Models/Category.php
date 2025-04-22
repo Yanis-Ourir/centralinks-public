@@ -12,6 +12,7 @@ class Category extends Model
     protected $fillable = [
         'name',
         'banner',
+        'user_id',
     ];
     /**
      * Get the links associated with the category.
@@ -23,7 +24,7 @@ class Category extends Model
     /**
      * Get the user that created the category.
      */
-    public function user(): BelongsTo
+    public function users(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
