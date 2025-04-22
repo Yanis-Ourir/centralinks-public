@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service;
+namespace App\Services\FormatApi;
 
 use App\Services\FormatApi\FormatApiDataInterface;
 
