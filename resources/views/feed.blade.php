@@ -31,7 +31,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center text-yellow-500">
-                                    {{-- <x-icon-link /> --}}
+                                    <x-heroicon-s-link class="w-6 h-6"/>
                                 </div>
                             </div>
 
@@ -57,11 +57,11 @@
                             <div class="flex items-center justify-between mt-4 text-gray-400 text-sm border-t border-gray-800 pt-4">
                                 <div class="flex items-center gap-4">
                                     <span class="flex items-center gap-1">
-                                        {{-- <x-icon-star /> --}}
+                                        <x-heroicon-s-star class="w-6 h-6"/>
                                         {{ $post['score'] }}
                                     </span>
                                     <span class="flex items-center gap-1">
-                                        {{-- <x-icon-comment /> --}}
+                                        <x-heroicon-c-chat-bubble-oval-left class="w-6 h-6"/>
                                         {{ $post['num_comments'] }}
                                     </span>
                                 </div>
@@ -103,9 +103,9 @@
 
                             <div class="flex items-center justify-between mt-4 text-gray-400 text-sm border-t border-gray-800 pt-4">
                                 <div class="flex items-center gap-5">
-                                    <span class="flex items-center gap-1 hover:text-yellow-500"><x-icon-heart /></span>
-                                    <span class="flex items-center gap-1 hover:text-yellow-500"><x-icon-comment /></span>
-                                    <span class="flex items-center gap-1 hover:text-yellow-500"><x-icon-share /></span>
+                                    <span class="flex items-center gap-1 hover:text-yellow-500"><x-heroicon-s-heart class="w-6 h-6"/></span>
+                                    <span class="flex items-center gap-1 hover:text-yellow-500"><x-heroicon-c-chat-bubble-oval-left class="w-6 h-6"/></span>
+                                    <span class="flex items-center gap-1 hover:text-yellow-500"><x-heroicon-s-share class="w-6 h-6"/></span>
                                 </div>
                                 <span class="text-yellow-500 flex items-center gap-1 hover:underline">
                                     View on Twitter
@@ -117,7 +117,7 @@
             @empty
                 <div class="bg-[#1e1e1e] border border-gray-700 rounded-xl p-8 shadow-md shadow-black/20 text-center">
                     <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-800/30 flex items-center justify-center">
-                        <x-icon-x />
+                        <x-heroicon-s-share />
                     </div>
                     <h2 class="text-xl font-semibold mb-2">Your feed is empty</h2>
                     <p class="text-gray-400">Select a category from the left sidebar to view posts</p>

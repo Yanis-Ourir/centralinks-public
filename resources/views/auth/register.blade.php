@@ -3,7 +3,8 @@
 @section('title', 'Register - Centralinks')
 
 @section('body')
-<x-guest-layout>
+
+
     <div class="flex items-center justify-center min-h-screen bg-[#161616] text-white">
         <div class="w-full max-w-md bg-[#1e1e1e] p-8 rounded-2xl shadow-md shadow-black/30 border border-gray-700">
     
@@ -60,5 +61,5 @@
         </form>
     </div>
 </div>
-</x-guest-layout>
+
 @endsection
