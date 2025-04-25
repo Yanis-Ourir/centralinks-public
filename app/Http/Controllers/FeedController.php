@@ -25,7 +25,7 @@ class FeedController extends Controller
   
     public function index()
     {
-        $categories = $this->category::all();
+        $categories = $this->category::where('user_id', auth()->user()->id)->get();
         $posts = $this->postAggregator->fetchAllPosts();
 
         return view('feed', [

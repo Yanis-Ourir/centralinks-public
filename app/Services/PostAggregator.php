@@ -9,32 +9,44 @@ class PostAggregator
 {
     private FormatApiFactory $formatApi;
     private Link $link;
+    private Category $category;
 
-    public function __construct(FormatApiFactory $formatApi, Link $link)
+    public function __construct(FormatApiFactory $formatApi, Link $link, Category $category)
     {
         $this->formatApi = $formatApi;
         $this->link = $link;
+        $this->category = $category;
     }
 
     public function fetchAllPosts(): array
     {
         $posts = [];
 
-        $links = $this->link::all();
-
-        foreach ($links as $link) {
-            /**
-             * @var FormatApiDataInterface $formatter
-             */
-            $formatter = $this->formatApi->create($link->application_name);
-            $fetchedPost = $formatter->ApiCall($link->url);
-
-            if(is_array($fetchedPost)) {
-                $posts[] = $fetchedPost;
-            } 
+        $categories = $this->category::where('user_id', auth()->user()->id)->get();
+     
+        if($categories->isEmpty()) {
+            return $posts;
         }
 
-        return array_merge(...$posts);
+        foreach($categories as $category) {
+            $links = $category->links()->get();
+
+            foreach ($links as $link) {
+                /**
+                 * @var FormatApiDataInterface $formatter
+                 */
+                $formatter = $this->formatApi->create($link->application_name);
+                $fetchedPost = $formatter->ApiCall($link->url);
+    
+                if(is_array($fetchedPost)) {
+                    $posts[] = $fetchedPost;
+                } 
+            }
+    
+            return array_merge(...$posts);
+        }
+        
+        return $posts;
     }
 
     public function fetchCategoryPosts(Category $category): array
