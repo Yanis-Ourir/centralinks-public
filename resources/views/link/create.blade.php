@@ -9,7 +9,7 @@
 
     <main class="flex-1 p-10 mt-24">
         <div class="flex flex-col md:flex-row md:items-center justify-center gap-4 mb-8">
-            <h1 class="text-3xl font-bold text-white">Create your category</h1>
+            <h1 class="text-3xl font-bold text-white">Add a link to a category</h1>
         </div>
 
         <form action="{{ route('links.store') }}" method="POST" class="bg-[#1e1e1e] border border-gray-700 rounded-2xl p-6 shadow-md shadow-black/20 w-1/2 justify-center mx-auto">
