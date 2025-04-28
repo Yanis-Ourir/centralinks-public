@@ -3,25 +3,25 @@
 @section('title', 'HomePage - Centralinks')
 
 @section('body')
-<x-guest-layout>
+<x-guest-layout class="bg-[#161616] text-white">
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login') }}" class="bg-[#1e1e1e] border border-gray-700 hover:border-yellow-500 rounded-2xl p-6 shadow-md shadow-black/20">
         @csrf
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-input-label for="email" :value="__('Email')" class="text-white text-4xl"/>
+            <x-text-input id="email" class="block mt-1 w-full text-white focus:border-yellow-500 border border-gray-700 p-2" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('Password')" class="text-white text-4xl"/>
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-text-input id="password" class="block mt-1 w-full text-white focus:border-yellow-500 border border-gray-700 p-2"
                             type="password"
                             name="password"
                             required autocomplete="current-password" />
