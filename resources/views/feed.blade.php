@@ -91,7 +91,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center text-yellow-500">
-                                    {{-- <x-icon-link /> --}}
+                                    <x-heroicon-s-link class="w-6 h-6"/>
                                 </div>
                             </div>
 
